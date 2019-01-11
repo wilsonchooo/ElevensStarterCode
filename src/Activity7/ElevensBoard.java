@@ -1,56 +1,39 @@
 package Activity7;
 
+import Activity9.Card;
+import Activity9.Deck;
+
 import java.util.List;
 import java.util.ArrayList;
 
-/**
- * The ElevensBoard class represents the board in a game of Elevens.
- */
 public class ElevensBoard {
 
-    /**
-     * The size (number of cards) on the board.
-     */
+
     private static final int BOARD_SIZE = 9;
 
-    /**
-     * The ranks of the cards for this game to be sent to the deck.
-     */
     private static final String[] RANKS =
             {"ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king"};
 
-    /**
-     * The suits of the cards for this game to be sent to the deck.
-     */
+
     private static final String[] SUITS =
             {"spades", "hearts", "diamonds", "clubs"};
 
-    /**
-     * The values of the cards for this game to be sent to the deck.
-     */
+
     private static final int[] POINT_VALUES =
             {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0};
 
 
-    /**
-     * The cards on this board.
-     */
+
     private Card[] cards;
 
-    /**
-     * The deck of cards being used to play the current game.
-     */
+
     private Deck deck;
 
-    /**
-     * Flag used to control debugging print statements.
-     */
+
     private static final boolean I_AM_DEBUGGING = false;
 
 
-    /**
-     * Creates a new <code>ElevensBoard</code> instance.
-     */
+
     public ElevensBoard() {
         cards = new Card[BOARD_SIZE];
         deck = new Deck(RANKS, SUITS, POINT_VALUES);
@@ -61,10 +44,7 @@ public class ElevensBoard {
         dealMyCards();
     }
 
-    /**
-     * Start a new game by shuffling the deck and
-     * dealing some cards to this board.
-     */
+
     public void newGame() {
         deck.shuffle();
         dealMyCards();
@@ -187,6 +167,7 @@ public class ElevensBoard {
      */
     public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+        return true;
     }
 
     /**
@@ -198,7 +179,9 @@ public class ElevensBoard {
      *         false otherwise.
      */
     public boolean anotherPlayIsPossible() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+        return true;
+
+        /* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
     }
 
 
@@ -220,7 +203,7 @@ public class ElevensBoard {
      *              contain an 11-pair; false otherwise.
      */
     private boolean containsPairSum11(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+        return true;
     }
 
     /**
@@ -232,6 +215,6 @@ public class ElevensBoard {
      *              include a jack, a queen, and a king; false otherwise.
      */
     private boolean containsJQK(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+        return true;
     }
 }
