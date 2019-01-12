@@ -1,4 +1,7 @@
-package Activity9;
+package Activity10;
+
+import Activity9.Board;
+import Activity9.Card;
 
 import java.awt.Point;
 import java.awt.Graphics;
@@ -57,7 +60,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
     private static final int LABEL_HEIGHT_INC = 35;
 
     /** The board (Board subclass). */
-    private Board board;
+    private Activity9.Board board;
 
     /** The main panel containing the game components. */
     private JPanel panel;

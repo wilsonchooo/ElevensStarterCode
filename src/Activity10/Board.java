@@ -1,4 +1,7 @@
-package Activity9;
+package Activity10;
+
+import Activity9.Card;
+import Activity9.Deck;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -13,12 +16,12 @@ public abstract class Board {
     /**
      * The cards on this board.
      */
-    public Card[] cards;
+    public Activity9.Card[] cards;
 
     /**
      * The deck of cards being used to play the current game.
      */
-    private Deck deck;
+    private Activity9.Deck deck;
 
     /**
      * Flag used to control debugging print statements.
@@ -34,7 +37,7 @@ public abstract class Board {
      *                    the deck
      */
     public Board(int size, String[] ranks, String[] suits, int[] pointValues) {
-        cards = new Card[size];
+        cards = new Activity9.Card[size];
         deck = new Deck(ranks, suits, pointValues);
         if (I_AM_DEBUGGING) {
             System.out.println(deck);
@@ -97,7 +100,7 @@ public abstract class Board {
      * @return the card at position k on the board.
      * @param k is the board position of the card to return.
      */
-    public Card cardAt(int k) {
+    public Activity9.Card cardAt(int k) {
         return cards[k];
     }
 

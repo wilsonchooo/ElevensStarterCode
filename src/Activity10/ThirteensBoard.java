@@ -1,4 +1,7 @@
-package Activity9;
+package Activity10;
+
+import Activity9.Board;
+import Activity9.Card;
 
 import java.util.Iterator;
 import java.util.List;
@@ -7,12 +10,12 @@ import java.util.ArrayList;
 /**
  * The ThirteensBoard class represents the board in a game of Elevens.
  */
-public class ElevensBoard extends Board {
+public class ThirteensBoard extends Board {
 
     /**
      * The size (number of cards) on the board.
      */
-    private static final int BOARD_SIZE = 9;
+    private static final int BOARD_SIZE = 10;
 
     /**
      * The ranks of the cards for this game to be sent to the deck.
@@ -30,7 +33,7 @@ public class ElevensBoard extends Board {
      * The values of the cards for this game to be sent to the deck.
      */
     private static final int[] POINT_VALUES =
-            {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 0, 0, 0};
+            {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 0};
 
     /**
      * Flag used to control debugging print statements.
@@ -41,7 +44,7 @@ public class ElevensBoard extends Board {
     /**
      * Creates a new <code>ThirteensBoard</code> instance.
      */
-    public ElevensBoard() {
+    public ThirteensBoard() {
         super(BOARD_SIZE, RANKS, SUITS, POINT_VALUES);
     }
 
@@ -62,9 +65,9 @@ public class ElevensBoard extends Board {
                 return true;
         }
 
-        if (selectedCards.size()==3)
+        if (selectedCards.size()==1)
         {
-            if (containsJQK(selectedCards))
+            if (containsK(selectedCards))
                 return true;
         }
 
@@ -89,7 +92,7 @@ public class ElevensBoard extends Board {
         }
         if (isLegal(select))
             return true;
-        else if (containsJQK(select))
+        else if (containsK(select))
             return true;
 
         else return false;
@@ -109,7 +112,7 @@ public class ElevensBoard extends Board {
      *              contain an 11-pair; false otherwise.
      */
     private boolean containsPairSum11(List<Integer> selectedCards) {
-        if (cards[selectedCards.get(0)].pointValue() + cards[selectedCards.get(1)].pointValue() == 11) {
+        if (cards[selectedCards.get(0)].pointValue() + cards[selectedCards.get(1)].pointValue() == 13) {
             return true;
         }
         return false;
@@ -125,29 +128,14 @@ public class ElevensBoard extends Board {
      * @return true if the board entries in selectedCards
      *              include a jack, a queen, and a king; false otherwise.
      */
-    private boolean containsJQK(List<Integer> selectedCards) {
-        boolean j = false;
-        boolean q = false;
-        boolean k = false;
-        Iterator<Integer> iterator = selectedCards.iterator();
-        while (iterator.hasNext()) {
-            Card card = cards[(iterator.next()).intValue()];
-            if (card.rank() == "king") {
-                k = true;
-            }
-
-            if (card.rank() == "queen") {
-                q = true;
-            }
-
-            if (card.rank() == "jack") {
-                j = true;
-            }
-
+    private boolean containsK(List<Integer> selectedCards) {
+        for (int i = 0; i < selectedCards.size(); i++) {
+            if (cards[selectedCards.get(i)].rank() == "king")
+                return true;
         }
+             return false;
 
-        if (k == true && q == true && j == true) {
-            return true;
-        } else return false;
+
+
     }
 }
